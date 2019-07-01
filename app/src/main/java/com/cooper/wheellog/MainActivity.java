@@ -942,6 +942,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     }, 2000);
                 }
                 return true;
+            case KeyEvent.KEYCODE_VOLUME_UP:
+                if (WheelData.getInstance().getWheelType() == WHEEL_TYPE.KINGSONG) {
+                   sendBroadcast(new Intent(Constants.ACTION_REQUEST_KINGSONG_HORN));
+
+                }
+                return true;
             default:
                 return super.onKeyDown(keyCode, event);
         }
